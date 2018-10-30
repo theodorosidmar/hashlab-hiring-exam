@@ -1,0 +1,24 @@
+# macOS files
+.DS_Store
+
+# Git files
+.git
+.gitignore
+
+# Editors and IDEs files
+.vscode
+
+# Environment files
+.env
+.env.sample
+
+# Docs files
+readme.me
+
+# Docker files
+.dockerignore
+Dockerfile
+Dockerfile.debug
+
+# Dependencies files
+package-lock.json

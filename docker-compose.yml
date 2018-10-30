@@ -1,0 +1,16 @@
+version: '3'
+services:
+  products-service:
+    build:
+      context: ./products-service
+      dockerfile: Dockerfile
+    environment:
+      - PORT
+      - DISCOUNTS_SERVICE_HOST
+      - DISCOUNTS_SERVICE_PORT
+    container_name: products-service
+    image: products-service:latest
+    restart: always
+    tty: true
+    ports:
+      - 3000:3000
