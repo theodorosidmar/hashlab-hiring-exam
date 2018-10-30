@@ -1,0 +1,22 @@
+{
+  "name": "hashlab-exam-products-service",
+  "version": "0.0.1",
+  "description": "Products service for HashLab exam",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "debug": "node_modules/.bin/nodemon --inspect-brk=0.0.0.0:9229 index.js"
+  },
+  "author": "Sidmar Theodoro <theodorosidmar@gmail.com>",
+  "dependencies": {
+    "@grpc/proto-loader": "0.3.0",
+    "body-parser": "1.18.3",
+    "dotenv": "6.0.0",
+    "express": "4.16.4",
+    "grpc": "1.15.1",
+    "helmet": "3.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "1.14.12"
+  }
+}
