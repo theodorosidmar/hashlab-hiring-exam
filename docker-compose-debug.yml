@@ -1,0 +1,17 @@
+version: '3'
+services:
+  products-service:
+    build:
+      context: ./products-service
+      dockerfile: Dockerfile.debug
+    environment:
+      - PORT=3000
+      - DISCOUNTS_SERVICE_HOST=localhost
+      - DISCOUNTS_SERVICE_PORT=3001
+    container_name: products-service-debug
+    image: products-service-debug:latest
+    restart: always
+    tty: true
+    ports:
+      - 3000:3000
+      - 9229:9229
