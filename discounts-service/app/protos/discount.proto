@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-service Discount {
+service DiscountService {
   rpc get(DiscountRequest) returns (DiscountResponse) {}
 }
 
