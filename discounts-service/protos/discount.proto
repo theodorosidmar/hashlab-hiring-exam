@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 service Discount {
-  rpc get(DiscountRequest) return (DiscountResponse) {}
+  rpc get(DiscountRequest) returns (DiscountResponse) {}
 }
 
 message DiscountRequest {
