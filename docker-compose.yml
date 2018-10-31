@@ -5,9 +5,9 @@ services:
       context: ./products-service
       dockerfile: Dockerfile
     environment:
-      - PORT
-      - DISCOUNTS_SERVICE_HOST
-      - DISCOUNTS_SERVICE_PORT
+      - PORT=3000
+      - DISCOUNTS_SERVICE_HOST=localhost
+      - DISCOUNTS_SERVICE_PORT=3001
     container_name: products-service
     image: products-service:latest
     restart: always
