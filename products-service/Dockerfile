@@ -1,7 +1,6 @@
 FROM node:9.5.0-alpine
 WORKDIR /products-service
 COPY . .
-COPY ../protos /products-service/src/protos
 RUN apk add --no-cache --virtual .gyp python make g++
 RUN npm install --production --no-cache
 RUN apk del .gyp
