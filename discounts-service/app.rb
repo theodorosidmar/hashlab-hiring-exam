@@ -23,7 +23,7 @@ def main
   server = GRPC::RpcServer.new
   server.add_http2_port("#{ENV['HOST']}:#{ENV['PORT']}", :this_port_is_insecure)
   puts "Server running insecurely on #{ENV['HOST']}:#{ENV['PORT']}"
-  server.handle(DiscountServer)
+  server.handle(DiscountServer.new)
   server.run_till_terminated
 end
 
