@@ -32,6 +32,7 @@ app.get('/product', (req, res, next) => {
     const discountService = new DiscountService()
     discountService.get(req.user.id, (error, products) => {
       if (error) {
+        Logger.logError(error)
         return res.json({ products: [] })
       }
       return res.json(products)
