@@ -8,13 +8,13 @@ class DiscountService {
     const url = `${process.env.DISCOUNTS_SERVICE_HOST}:${process.env.DISCOUNTS_SERVICE_PORT}`
     const protoPath = path.join(__dirname, '../', 'protos', 'discount.proto')
     const packageDefinition = protoLoader.loadSync(protoPath)
-    const proto = grpc.loadPackageDefinition(packageDefinition)
-    this.client = new proto.DiscountService(url, grpc.credentials.createInsecure())
+    const proto = grpc.loadPackageDefinition(packageDefinition).discount
+    this.client = new proto.Service(url, grpc.credentials.createInsecure())
   }
 
   get (userId, callback) {
     try {
-      this.client.get({ user_id: userId }, { deadline: 3000 }, callback)
+      this.client.get({ user_id: userId }, callback)
     } catch (error) {
       Logger.logError(error)
       callback(error)

@@ -4,26 +4,28 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "DiscountRequest" do
+  add_message "discount.GetRequest" do
     optional :user_id, :string, 1
   end
-  add_message "DiscountResponse" do
-    repeated :products, :message, 1, "Product"
+  add_message "discount.GetResponse" do
+    repeated :products, :message, 1, "discount.Product"
   end
-  add_message "Product" do
+  add_message "discount.Product" do
     optional :id, :string, 1
     optional :price_in_cents, :int64, 2
     optional :title, :string, 3
     optional :description, :string, 4
-    optional :discount, :message, 5, "Discount"
+    optional :discount, :message, 5, "discount.Discount"
   end
-  add_message "Discount" do
+  add_message "discount.Discount" do
     optional :pct, :float, 1
     optional :value_in_cents, :int64, 2
   end
 end
 
-DiscountRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("DiscountRequest").msgclass
-DiscountResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("DiscountResponse").msgclass
-Product = Google::Protobuf::DescriptorPool.generated_pool.lookup("Product").msgclass
-Discount = Google::Protobuf::DescriptorPool.generated_pool.lookup("Discount").msgclass
+module Discount
+  GetRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("discount.GetRequest").msgclass
+  GetResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("discount.GetResponse").msgclass
+  Product = Google::Protobuf::DescriptorPool.generated_pool.lookup("discount.Product").msgclass
+  Discount = Google::Protobuf::DescriptorPool.generated_pool.lookup("discount.Discount").msgclass
+end
