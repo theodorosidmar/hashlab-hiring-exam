@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package discount;
+
+service Service {
+  rpc get(GetRequest) returns (GetResponse) {}
+}
+
+message GetRequest {
+  string user_id = 1;
+}
+
+message GetResponse {
+  repeated Product products = 1;
+}
+
+message Product {
+  string id = 1;
+  int64 price_in_cents = 2;
+  string title = 3;
+  string description = 4;
+  Discount discount = 5;
+}
+
+message Discount {
+  float pct = 1;
+  int64 value_in_cents = 2;
+}
