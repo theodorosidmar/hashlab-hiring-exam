@@ -15,12 +15,14 @@ services:
     ports:
       - 3000:3000
       - 9229:9229
+    volumes:
+      - ./protos:/products-service/src/protos
   discounts-service:
     build:
       context: ./discounts-service
       dockerfile: Dockerfile
     environment:
-      - HOST=discounts-service
+      - HOST=0.0.0.0
       - PORT=3001
     container_name: discounts-service-debug
     image: discounts-service-debug:latest
