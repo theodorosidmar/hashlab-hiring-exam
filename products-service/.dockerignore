@@ -9,6 +9,3 @@
 .dockerignore
 Dockerfile
 Dockerfile.debug
-
-# Dependencies files
-package-lock.json
