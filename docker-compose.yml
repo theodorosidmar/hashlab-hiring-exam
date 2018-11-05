@@ -14,6 +14,8 @@ services:
     tty: true
     ports:
       - 3000:3000
+    volumes:
+      - ./protos:/products-service/src/protos
   discounts-service:
     build:
       context: ./discounts-service
