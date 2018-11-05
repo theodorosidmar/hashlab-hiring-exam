@@ -9,3 +9,6 @@
 .dockerignore
 Dockerfile
 Dockerfile.debug
+
+# Node
+node_modules/
