@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     environment:
       - PORT=3000
-      - DISCOUNTS_SERVICE_HOST=localhost
+      - DISCOUNTS_SERVICE_HOST=discounts-service
       - DISCOUNTS_SERVICE_PORT=3001
     container_name: products-service
     image: products-service:latest
@@ -21,7 +21,7 @@ services:
       context: ./discounts-service
       dockerfile: Dockerfile
     environment:
-      - HOST=localhost
+      - HOST=0.0.0.0
       - PORT=3001
     container_name: discounts-service
     image: discounts-service:latest
