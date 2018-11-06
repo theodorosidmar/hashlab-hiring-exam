@@ -1,7 +1,6 @@
 const grpc = require('grpc')
 const protoLoader = require('@grpc/proto-loader')
 const path = require('path')
-const Logger = require('../helpers/logger')
 
 class DiscountService {
   constructor () {
@@ -16,27 +15,28 @@ class DiscountService {
 
   get (callback) {
     try {
+      const birthdate = (new Date).getTime()
       const products = [
         {
           id: '1',
-          price_in_cents: 500,
+          priceincents: 500,
           title: 'Título 1',
           description: 'Descrição 1'
         },
         {
           id: '2',
-          price_in_cents: 1000,
+          priceincents: 1000,
           title: 'Título 2',
           description: 'Descrição 2'
         },
         {
           id: '3',
-          price_in_cents: '1500',
+          priceincents: 1500,
           title: 'Título 3',
           description: 'Descrição 3'
         }
       ]
-      this.client.get({ products }, callback)
+      this.client.get({ birthdate, products }, callback)
     } catch (error) {
       callback(error)
     }

@@ -9,9 +9,10 @@ require 'discount_services_pb'
 class DiscountServer < Discount::Service::Service
   def get(request, call)
     puts "Request received: #{request.inspect}"
+    puts "His birth_date: #{Time.at(request.birthdate.to_i/1000)}"
     products = request.products.to_a
     products.each do |product|
-      product['discount'] = Discount::Discount.new(pct: 1, value_in_cents: 10000)
+      product['discount'] = Discount::Discount.new(pct: 1, valueincents: 10000)
     end
     Discount::GetResponse.new(products: products)
   end
