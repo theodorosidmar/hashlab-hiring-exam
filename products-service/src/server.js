@@ -30,10 +30,10 @@ app.use((req, res, next) => {
 app.get('/product', (req, res, next) => {
   try {
     const discountService = new DiscountService()
-    discountService.get(req.user.id, (error, products) => {
+    discountService.get((error, products) => {
       if (error) {
         Logger.logError(error)
-        return res.json({ products: [] })
+        return res.json(products)
       }
       return res.json(products)
     })

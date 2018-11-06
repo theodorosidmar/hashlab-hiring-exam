@@ -6,17 +6,38 @@ const Logger = require('../helpers/logger')
 class DiscountService {
   constructor () {
     const url = `${process.env.DISCOUNTS_SERVICE_HOST}:${process.env.DISCOUNTS_SERVICE_PORT}`
-    const protoPath = path.join(__dirname, '../', 'protos', 'discount.proto')
+    const protoPath = process.env.NODE_ENV === 'production' ?
+      path.join(__dirname, '../', 'protos', 'discount.proto') :
+      path.join(__dirname, '../../../', 'protos', 'discount.proto')
     const packageDefinition = protoLoader.loadSync(protoPath)
-    const proto = grpc.loadPackageDefinition(packageDefinition).discount
-    this.client = new proto.Service(url, grpc.credentials.createInsecure())
+    const discountProto = grpc.loadPackageDefinition(packageDefinition).discount
+    this.client = new discountProto.Service(url, grpc.credentials.createInsecure())
   }
 
-  get (userId, callback) {
+  get (callback) {
     try {
-      this.client.get({ user_id: userId }, callback)
+      const products = [
+        {
+          id: '1',
+          price_in_cents: 500,
+          title: 'Título 1',
+          description: 'Descrição 1'
+        },
+        {
+          id: '2',
+          price_in_cents: 1000,
+          title: 'Título 2',
+          description: 'Descrição 2'
+        },
+        {
+          id: '3',
+          price_in_cents: '1500',
+          title: 'Título 3',
+          description: 'Descrição 3'
+        }
+      ]
+      this.client.get({ products }, callback)
     } catch (error) {
-      Logger.logError(error)
       callback(error)
     }
   }
