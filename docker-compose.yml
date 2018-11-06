@@ -5,6 +5,7 @@ services:
       context: ./products-service
       dockerfile: Dockerfile
     environment:
+      - NODE_ENV=production
       - PORT=3000
       - DISCOUNTS_SERVICE_HOST=discounts-service
       - DISCOUNTS_SERVICE_PORT=3001
