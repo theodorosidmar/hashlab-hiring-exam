@@ -5,7 +5,7 @@ require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "discount.GetRequest" do
-    optional :birthdate, :int64, 1
+    optional :birth_date, :int64, 1
     repeated :products, :message, 2, "discount.Product"
   end
   add_message "discount.GetResponse" do
@@ -13,14 +13,14 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
   add_message "discount.Product" do
     optional :id, :string, 1
-    optional :priceincents, :int32, 2
+    optional :price_in_cents, :int32, 2
     optional :title, :string, 3
     optional :description, :string, 4
     optional :discount, :message, 5, "discount.Discount"
   end
   add_message "discount.Discount" do
     optional :pct, :float, 1
-    optional :valueincents, :int32, 2
+    optional :value_in_cents, :int32, 2
   end
 end
 

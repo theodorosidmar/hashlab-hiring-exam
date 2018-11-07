@@ -8,35 +8,35 @@ class DiscountService {
     const protoPath = process.env.NODE_ENV === 'production' ?
       path.join(__dirname, '../', 'protos', 'discount.proto') :
       path.join(__dirname, '../../../', 'protos', 'discount.proto')
-    const packageDefinition = protoLoader.loadSync(protoPath)
+    const packageDefinition = protoLoader.loadSync(protoPath, { keepCase: true })
     const discountProto = grpc.loadPackageDefinition(packageDefinition).discount
     this.client = new discountProto.Service(url, grpc.credentials.createInsecure())
   }
 
   get (callback) {
     try {
-      const birthdate = (new Date).getTime()
+      const birth_date = (new Date).getTime()
       const products = [
         {
           id: '1',
-          priceincents: 500,
+          price_in_cents: 500,
           title: 'Título 1',
           description: 'Descrição 1'
         },
         {
           id: '2',
-          priceincents: 1000,
+          price_in_cents: 1000,
           title: 'Título 2',
           description: 'Descrição 2'
         },
         {
           id: '3',
-          priceincents: 1500,
+          price_in_cents: 1500,
           title: 'Título 3',
           description: 'Descrição 3'
         }
       ]
-      this.client.get({ birthdate, products }, callback)
+      this.client.get({ birth_date, products }, callback)
     } catch (error) {
       callback(error)
     }
