@@ -1,4 +1,4 @@
-FROM ruby:2.5.1-alpine
+FROM ruby:2.5.3-alpine3.8
 WORKDIR /discounts-service
 COPY Gemfile .
 COPY Gemfile.lock .

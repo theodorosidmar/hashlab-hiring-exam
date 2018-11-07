@@ -14,7 +14,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv (= 2.5.0)
-  grpc (~> 1.0)
+  grpc (~> 1.16.0)
 
 BUNDLED WITH
-   1.16.6
+   1.16.5
