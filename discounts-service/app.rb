@@ -31,7 +31,7 @@ class DiscountServer < Discount::Service::Service
         products.each do |product|
           price_in_cents = product.price_in_cents
           value_in_cents = price_in_cents - (price_in_cents * (1 - discount)).to_i
-          product['discount'] = Discount::Discount.new(pct: 1, value_in_cents: value_in_cents)
+          product['discount'] = Discount::Discount.new(pct: discount, value_in_cents: value_in_cents)
         end
       end
       Discount::GetResponse.new(products: products)
