@@ -1,7 +1,7 @@
 const express = require('express')
 const helmet = require('helmet')
 const bodyParser = require('body-parser')
-const Logger = require('./helpers/logger')
+const { log, logError } = require('./helpers/logger')
 const httpStatus = require('./helpers/http-status')
 const DiscountService = require('./services/discount')
 
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
     query: req.query,
     params: req.params,
   }
-  Logger.log(data)
+  log(data)
   return next();
 })
 
@@ -32,7 +32,7 @@ app.get('/product', (req, res, next) => {
     const discountService = new DiscountService()
     discountService.get((error, products) => {
       if (error) {
-        Logger.logError(error)
+        logError(error)
         return res.json(products)
       }
       return res.json(products)
@@ -43,12 +43,12 @@ app.get('/product', (req, res, next) => {
 })
 
 app.use((error, req, res, next) => {
-  Logger.logError(error)
+  logError(error)
   return res
     .status(error.statusCode || httpStatus.INTERNAL_SERVER_ERROR)
     .send('Internal server error')
 })
 
 app.listen(app.get('port'), () => {
-  Logger.log(`Web server listening on port ${app.get('port')}`)
+  log(`Web server listening on port ${app.get('port')}`)
 })
