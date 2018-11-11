@@ -1,0 +1,27 @@
+[
+  {
+    "price_in_cents": 500,
+    "title": "Product 1",
+    "description": "Description 1"
+  },
+  {
+    "price_in_cents": 1000,
+    "title": "Product 2",
+    "description": "Description 2"
+  },
+  {
+    "price_in_cents": 1500,
+    "title": "Product 3",
+    "description": "Description 3"
+  },
+  {
+    "price_in_cents": 2000,
+    "title": "Product 4",
+    "description": "Description 4"
+  },
+  {
+    "price_in_cents": 2500,
+    "title": "Product 5",
+    "description": "Description 5"
+  }
+]
