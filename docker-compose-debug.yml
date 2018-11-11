@@ -30,3 +30,15 @@ services:
     tty: true
     ports:
       - 3001:3001
+  products-database:
+    container_name: products-database-debug
+    image: mongo:4.1
+    tty: true
+    environment:
+      - MONGO_INITDB_DATABASE=products
+      - MONGO_INITDB_ROOT_USERNAME=hashlab
+      - MONGO_INITDB_ROOT_PASSWORD=hashlab
+    ports:
+      - 27017:27017
+    volumes:
+      - ./products-seed:/docker-entrypoint-initdb.d/
