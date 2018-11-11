@@ -1,6 +1,9 @@
 > Exam for [HashLab hiring](https://github.com/hashlab/hiring/blob/master/portuguese/back-challenge.md)!
 
-Explanations coming soon. Work in progress...
+# Running
+```bash
+docker-compose up --build
+```
 
 ### Topics to talk about
 * GRPC Server running insecurely
