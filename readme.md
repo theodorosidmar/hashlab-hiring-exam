@@ -5,7 +5,7 @@
 > docker-compose up --build
 ```
 
-### Discussing points
+## Discussing points
 * gRPC Server running insecurely;
 * Logging all services;
 * Environment variables management (not hardcoded in docker-compose maybe);
