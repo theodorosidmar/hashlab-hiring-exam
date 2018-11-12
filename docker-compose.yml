@@ -9,14 +9,21 @@ services:
       - PORT=3000
       - DISCOUNTS_SERVICE_HOST=discounts-service
       - DISCOUNTS_SERVICE_PORT=3001
+      - DB_HOST=products-database
+      - DB_PORT=27017
+      - DB_NAME=products
+      - DB_USERNAME=hashlab
+      - DB_PASSWORD=hashlab
     container_name: products-service
     image: products-service:latest
-    restart: always
+    restart: on-failure
     tty: true
     ports:
       - 3000:3000
     volumes:
       - ./protos:/products-service/src/protos
+    depends_on:
+      - products-database
   discounts-service:
     build:
       context: ./discounts-service
