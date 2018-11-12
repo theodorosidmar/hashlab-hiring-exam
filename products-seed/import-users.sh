@@ -1,0 +1,1 @@
+mongoimport --db products --mode upsert --collection users --type json --file /docker-entrypoint-initdb.d/users.json --jsonArray

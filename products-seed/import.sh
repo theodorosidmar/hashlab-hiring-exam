@@ -1,1 +1,0 @@
-mongoimport --db products --mode upsert --collection products --type json --file /docker-entrypoint-initdb.d/products.json --jsonArray && mongoimport --db products --mode upsert --collection users --type json --file /docker-entrypoint-initdb.d/users.json --jsonArray
