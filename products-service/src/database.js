@@ -1,4 +1,4 @@
-const MongoClient = require('mongodb').MongoClient;
+const MongoClient = require('mongodb').MongoClient
 const { log, logError } = require('./helpers/logger')
 
 class Database {
@@ -12,26 +12,27 @@ class Database {
   }
 
   connect () {
-    MongoClient.connect(this.url, (err, client) => {
+    return MongoClient.connect(this.url, { useNewUrlParser: true }, (err, client) => {
       if (this.timeouted) return
       if (err) {
-        setTimeout(this.connect, 2000)
+        logError(`Couldn't connect to mongoDB. Trying to reconnect...`)
+        setTimeout(this.connect.bind(this), 5000)
       } else {
         clearTimeout(this.timeoutHandler)
         this.timeoutHandler = null
-        log('Connected succesfully to mongoDB')
         this.db = client.db(process.env.DB_NAME)
         this.productsCollection = this.db.collection('products')
         this.usersCollection = this.db.collection('users')
+        log('Connected succesfully to mongoDB')
       }
     })
   }
 
-  usersCollection () {
+  users () {
     return this.usersCollection
   }
 
-  productsCollection () {
+  products () {
     return this.productsCollection
   }
 }

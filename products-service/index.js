@@ -1,2 +1,5 @@
 require('dotenv').config()
-require('./src/server')
+
+const ProductsServer = require('./src/server')
+const app = new ProductsServer()
+app.listen()
