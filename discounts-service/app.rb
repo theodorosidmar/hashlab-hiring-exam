@@ -10,12 +10,11 @@ class DiscountServer < Discount::Service::Service
   def get(request, call)
     puts "Request received: #{request.inspect}"
     raise GRPC::BadStatus.new(GRPC::Core::StatusCodes::INVALID_ARGUMENT, "Bad request") unless
-      request.birth_date > 0 and
       request.products.length > 0
     begin
       now = Time.now
       products = request.products.to_a
-      birth_date = Time.at(request.birth_date.to_i / 1000)
+      birth_date = Time.at(request.birth_date.to_i / 1000).utc
       discount = 0
       if birth_date.day == 29 and birth_date.month == 02
         # No discount for February 29
