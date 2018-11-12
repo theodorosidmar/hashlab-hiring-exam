@@ -25,13 +25,14 @@ class DiscountServer < Discount::Service::Service
       elsif birth_date.month == now.month
         # 20% discount for his month birthday
         discount = 0.20
+      else
+        # 10% discount
+        discount = 0.10
       end
-      if discount > 0
-        products.each do |product|
-          price_in_cents = product.price_in_cents
-          value_in_cents = price_in_cents - (price_in_cents * (1 - discount)).to_i
-          product['discount'] = Discount::Discount.new(pct: discount, value_in_cents: value_in_cents)
-        end
+      products.each do |product|
+        price_in_cents = product.price_in_cents
+        value_in_cents = price_in_cents - (price_in_cents * (1 - discount)).to_i
+        product['discount'] = Discount::Discount.new(pct: discount, value_in_cents: value_in_cents)
       end
       Discount::GetResponse.new(products: products)
     rescue Exception => error
