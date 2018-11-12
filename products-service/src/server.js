@@ -34,9 +34,9 @@ class Server {
     this.app.get('/product', async (req, res, next) => {
       try {
         let user = null
-        const products = await this.db.products.find().toArray()
+        const products = await this.db.products().find().toArray()
         if (req.user.id) {
-          user = await this.db.users.findOne({ public_id: req.user.id })
+          user = await this.db.users().findOne({ public_id: req.user.id })
         }
         if (user) {
           this.discountService.get(user.birth_date.getTime(), products, (error, productsResponse) => {
