@@ -9,7 +9,7 @@
     "public_id": "2",
     "first_name": "Vito",
     "last_name": "Corleone",
-    "birth_date": { "$date": "1964-02-03T00:00:00.000Z" }
+    "birth_date": { "$date": "1964-02-29T00:00:00.000Z" }
   },
   {
     "public_id": "3",
