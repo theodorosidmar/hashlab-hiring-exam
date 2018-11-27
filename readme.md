@@ -1,4 +1,4 @@
-> Exam for [Hashlab hiring](https://github.com/hashlab/hiring/blob/master/portuguese/back-challenge.md)
+> Exam for [Hashlab hiring](https://github.com/hashlab/hiring/blob/master/challenges/pt-br/back-challenge.md)
 
 ## Running
 ```bash
