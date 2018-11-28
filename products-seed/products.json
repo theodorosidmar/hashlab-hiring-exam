@@ -23,5 +23,30 @@
     "price_in_cents": 2500,
     "title": "Product 5",
     "description": "Description 5"
+  },
+  {
+    "price_in_cents": 3000,
+    "title": "Product 6",
+    "description": "Description 6"
+  },
+  {
+    "price_in_cents": 3500,
+    "title": "Product 7",
+    "description": "Description 7"
+  },
+  {
+    "price_in_cents": 4000,
+    "title": "Product 8",
+    "description": "Description 8"
+  },
+  {
+    "price_in_cents": 4500,
+    "title": "Product 9",
+    "description": "Description 9"
+  },
+  {
+    "price_in_cents": 5000,
+    "title": "Product 10",
+    "description": "Description 10"
   }
 ]
