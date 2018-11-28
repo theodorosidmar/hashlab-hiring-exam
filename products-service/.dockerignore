@@ -12,3 +12,6 @@ Dockerfile.debug
 
 # Node
 node_modules/
+
+# Doc files
+readme.me
