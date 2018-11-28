@@ -9,7 +9,6 @@
 * gRPC Server running insecurely;
 * Logging all services;
 * Environment variables management (not hardcoded in docker-compose maybe);
-* Services running on default port;
 * Proto files share/management (in case of update);
 * Better gRPC server request validations;
 * Error handlers;
