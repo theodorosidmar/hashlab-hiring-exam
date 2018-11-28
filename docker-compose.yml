@@ -6,20 +6,19 @@ services:
       dockerfile: Dockerfile
     environment:
       - NODE_ENV=production
-      - PORT=3000
+      - PORT=4600
       - DISCOUNTS_SERVICE_HOST=discounts-service
-      - DISCOUNTS_SERVICE_PORT=3001
+      - DISCOUNTS_SERVICE_PORT=4601
       - DB_HOST=products-database
-      - DB_PORT=27017
+      - DB_PORT=4602
       - DB_NAME=products
       - DB_USERNAME=hashlab
       - DB_PASSWORD=hashlab
     container_name: products-service
     image: products-service:latest
-    restart: on-failure
     tty: true
     ports:
-      - 3000:3000
+      - 4600:4600
     volumes:
       - ./protos:/products-service/src/protos
     depends_on:
@@ -30,22 +29,22 @@ services:
       dockerfile: Dockerfile
     environment:
       - HOST=0.0.0.0
-      - PORT=3001
+      - PORT=4601
     container_name: discounts-service
     image: discounts-service:latest
-    restart: always
     tty: true
     ports:
-      - 3001:3001
+      - 4601:4601
   products-database:
     container_name: products-database
     image: mongo:4.1
+    command: mongod --port 4602
     tty: true
     environment:
       - MONGO_INITDB_DATABASE=products
       - MONGO_INITDB_ROOT_USERNAME=hashlab
       - MONGO_INITDB_ROOT_PASSWORD=hashlab
     ports:
-      - 27017:27017
+      - 4602:4602
     volumes:
       - ./products-seed:/docker-entrypoint-initdb.d/
