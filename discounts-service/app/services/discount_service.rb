@@ -17,8 +17,8 @@ class DiscountService < Discount::GetService::Service
   def default_response(products, pct)
     products = products.to_a
     products.each do |product|
-      price_in_cents = product.price_in_cents
       if pct > 0
+        price_in_cents = product.price_in_cents
         value_in_cents = price_in_cents - (price_in_cents * (1 - pct)).to_i
         product['discount'] = Discount::Discount.new(pct: pct.round(2), value_in_cents: value_in_cents)
       else
