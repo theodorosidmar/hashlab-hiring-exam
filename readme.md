@@ -9,7 +9,6 @@
 * `products-service` [readme](https://github.com/theodorosidmar/hashlab-hiring-exam/blob/master/products-service/readme.md)
 * `discounts-service` [readme](https://github.com/theodorosidmar/hashlab-hiring-exam/blob/master/discounts-service/readme.md)
 
-
 ## Discussing points
 * gRPC Server running insecurely;
 * Logging all services;

@@ -1,3 +1,4 @@
+# Get discount percentage based on infos
 class GetPct
   def self.by_birth_date(birth_date)
     now = Time.now
