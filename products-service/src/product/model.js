@@ -1,5 +1,5 @@
 exports.findAll = async () => {
-  const db = require('../database').db()
+  const db = require('../database').get()
   if (!db) {
     return []
   }

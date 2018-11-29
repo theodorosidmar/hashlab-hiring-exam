@@ -31,6 +31,6 @@ const connect = () => {
 }
 
 exports.connect = connect
-exports.db = () => {
+exports.get = () => {
   return state.db
 }
