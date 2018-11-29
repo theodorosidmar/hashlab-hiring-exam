@@ -24,7 +24,7 @@ app.use((req, res, next) => {
     params: req.params,
   }
   log(data)
-  return next();
+  return next()
 })
 
 app.use('/product', productRoutes)
