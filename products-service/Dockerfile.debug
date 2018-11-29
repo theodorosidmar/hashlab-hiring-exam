@@ -1,9 +1,19 @@
 FROM node:9.5.0-alpine
-WORKDIR /products-service
-COPY . .
+
+ENV WORKDIR /products-service
+
+WORKDIR ${WORKDIR}
+
+COPY package.json ${WORKDIR}
+COPY package-lock.json ${WORKDIR}
+
 RUN apk add --no-cache --virtual .gyp python make g++
 RUN npm install --no-cache
 RUN apk del .gyp
+
+COPY . ${WORKDIR}
+
 CMD ["npm", "run", "debug"]
+
 EXPOSE 3000
 EXPOSE 9229
