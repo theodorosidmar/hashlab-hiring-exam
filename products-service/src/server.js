@@ -6,10 +6,10 @@ const httpStatus = require('./helpers/http-status')
 const { log, logError } = require('./helpers/logger')
 
 const app = express()
-const port = process.env.PORT
 app.use(helmet())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.set('port', process.env.PORT)
 
 app.use((req, res, next) => {
   req.user = { id: req.headers['x-user-id'] }
@@ -36,6 +36,6 @@ app.use((error, req, res, next) => {
     .send('Internal server error')
 })
 
-app.listen(port, () => {
-  log(`Web server listening on port ${port}`)
+app.listen(app.get('port'), () => {
+  log(`Web server listening on port ${app.get('port')}`)
 })
