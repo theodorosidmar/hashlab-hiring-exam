@@ -2,16 +2,16 @@ syntax = "proto3";
 
 package discount;
 
-service Service {
-  rpc get(GetRequest) returns (GetResponse) {}
+service GetService {
+  rpc ByBirthDate(ByBirthDateRequest) returns (DefaultResponse) {}
 }
 
-message GetRequest {
+message ByBirthDateRequest {
   int64 birth_date = 1;
   repeated Product products = 2;
 }
 
-message GetResponse {
+message DefaultResponse {
   repeated Product products = 1;
 }
 
@@ -24,6 +24,6 @@ message Product {
 }
 
 message Discount {
-  float pct = 1;
+  double pct = 1;
   int32 value_in_cents = 2;
 }

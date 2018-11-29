@@ -5,16 +5,16 @@ require 'grpc'
 require 'discount_pb'
 
 module Discount
-  module Service
+  module GetService
     class Service
 
       include GRPC::GenericService
 
       self.marshal_class_method = :encode
       self.unmarshal_class_method = :decode
-      self.service_name = 'discount.Service'
+      self.service_name = 'discount.GetService'
 
-      rpc :get, GetRequest, GetResponse
+      rpc :ByBirthDate, ByBirthDateRequest, DefaultResponse
     end
 
     Stub = Service.rpc_stub_class

@@ -12,7 +12,7 @@ module.exports = {
         user = await userModel.findById(req.user.id)
       }
       if (user) {
-        discountService.get(user.birth_date.getTime(), products, (error, productsResponse) => {
+        discountService.byBirthDate(user.birth_date.getTime(), products, (error, productsResponse) => {
           if (error) {
             logError(error)
             return res.json({ products })

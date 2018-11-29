@@ -12,6 +12,6 @@ RUN BUNDLE_FORCE_RUBY_PLATFORM=1 bundle install --jobs 2 --without development t
 
 COPY . ${WORKDIR}
 
-CMD ["ruby", "app.rb"]
+CMD ["ruby", "config.ru"]
 
-EXPOSE 4602
+EXPOSE 4601
