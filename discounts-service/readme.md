@@ -9,3 +9,8 @@
 * 50% when it's birthday;
 * 20% when it's his month of birth;
 * 10% anyways
+
+### Testing
+```
+$ rspec
+```
