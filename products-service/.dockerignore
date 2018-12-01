@@ -15,3 +15,6 @@ node_modules/
 
 # Doc files
 readme.me
+
+# Test files
+test/
