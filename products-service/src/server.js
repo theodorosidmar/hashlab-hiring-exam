@@ -39,3 +39,5 @@ app.use((error, req, res, next) => {
 app.listen(app.get('port'), () => {
   log(`Web server listening on port ${app.get('port')}`)
 })
+
+module.exports = app
