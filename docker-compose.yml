@@ -47,4 +47,4 @@ services:
     ports:
       - 4602:4602
     volumes:
-      - ./products-seed:/docker-entrypoint-initdb.d/
+      - ./seeds:/docker-entrypoint-initdb.d/
