@@ -14,3 +14,7 @@ readme.me
 
 # makefile
 makefile
+
+# Test files
+.rspec
+spec/
